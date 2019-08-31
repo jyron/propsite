@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %} {% with messages =
+get_flashed_messages() %} {% if messages %} {% for message in messages %} <p>
+  <em>{{ message }}</em>
+</p> {% endfor %} {% endif %} {% endwith %} <header class="jumbotron bg-primary text-white">
+  <h2 class="display-3">Student Proposals</h1>
+    <p class="lead text-white"> Read well written, factually supported solutions to issues plaguing society. Submit your own proposals to be
+      reviewed and voted on. Top proposals will be featured on our frontpage everyday. </p>
+</header>
+<h1 class="my-4"> Today's Top Proposal <small> {{ date.strftime("%B %d %Y") }}</small>
+</h1>
+<!-- Portfolio Item Row -->
+<div class="row">
+  <div class="col">
+    <img class="img" src="{{ url_for('static', filename='reparations.jpeg') }}" style="width:400px;height:500px;">
+  </div>
+  <div class="col">
+    <h2>Reparations</h2>
+    <p> America began its history with four centuries of private, free, stolen labor. America should <b>massively fund educational reform
+        specfically targeted at the descendants of unpaid workers </b>until their debt is fully re-paid. By increasing the
+      <em>inherent value</em> of disadvantaged communities the U.S will finally be able to begin correcting its misdeeds with long-lasting,
+      positive, self propogating methods. </p>
+    <h3 class="my-3">Funding Details</h3>
+    <ul>
+      <li>2% wealth tax on all american land-owners</li>
+      <li>2% education tax on all corporations of a certain size, to fund education in affected communities</li>
+      <li>All non-violent drug charges expunged and all offenders released</li>
+      
+    </ul>
+  </div>
+</div>
+<!-- /.row -->
+<!-- Related Projects Row -->
+<h2 class="my-4">Popular Proposals</h2>
+<div class="row"> {% for prop in props %} <div class="col-md-3">
+    <h5>{{ prop.category }}</h5>
+    <a href="#">
+      <img class="img-fluid" src="http://placehold.it/500x300" alt="" />
+    </a>
+    <h5 class="my-3">{{ prop.brief }}</h5>
+  </div> {% endfor %} </div> {% endblock %}

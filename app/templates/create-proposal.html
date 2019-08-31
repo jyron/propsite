@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% from "_formhelpers.html" import render_field %} {%
+block content %}
+
+<header class="jumbotron bg-success text-light">
+  <h2 class="display-3">Submit a Proposal</h2>
+  <p class="lead">
+    Have a solution? Write a proposal to solve major societal issues. Support
+    your solution with facts, sources, and accurate numbers. Most importantly,
+    please be <em>concise and factual.</em>
+  </p>
+</header>
+<h1>Proposal Creator</h1>
+<hr />
+
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+  <div>
+    {{ render_field(form.category) }}
+  </div>
+
+  <div class="row">
+    <div class="col-3">
+      {{ render_field(form.issue, placeholder='The Issue Is...') }}
+    </div>
+    <div class="col-9">
+      {{ render_field(form.brief, placeholder= "And I Propose To...") }}
+    </div>
+  </div>
+
+  <div>
+    {{ render_field(form.detail, rows=5, cols="51%") }}
+  </div>
+  <div>
+    {{ form.factcheck() }}
+    {{ form.factcheck.label }}<br />
+    {{ form.submit(label='Submit') }}
+  </div>
+</form>
+
+{% endblock %}
