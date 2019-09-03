@@ -34,7 +34,7 @@ get_flashed_messages() %} {% if messages %} {% for message in messages %} <p>
 <div class="row"> {% for prop in props %} <div class="col-md-3">
     <h5>{{ prop.category }}</h5>
     <a href="#">
-      <img class="img-fluid" src="http://placehold.it/500x300" alt="" />
+      <img class="img-fluid" src="{{ url_for('static', filename='capitol.png') }}" alt="" />
     </a>
     <h5 class="my-3">{{ prop.brief }}</h5>
   </div> {% endfor %} </div> {% endblock %}

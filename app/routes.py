@@ -34,7 +34,7 @@ def create_proposal():
     form.category.choices = cat_list
     if form.validate_on_submit():
         prop = Proposal(category = form.category.data, issue=form.issue.data,
-                        brief=form.brief.data, solution=form.detail.data)
+                        brief=form.brief.data, detail=form.detail.data)
         db.session.add(prop)
         db.session.commit()
         flash('Your proposal for {} is being reviewed, please allow 1 day for approval'.format(

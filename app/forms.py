@@ -8,7 +8,7 @@ cat_list = [('Immigration', 'Immigration'),
 class PostForm(FlaskForm):
     category = SelectField('Category')
     issue = StringField('Issue', validators=[DataRequired()])
-    brief = StringField('Brief')
+    brief = TextAreaField('Brief')
     detail = TextAreaField('Detail', validators=[DataRequired()])
     factcheck = BooleanField('I have fact-checked my proposal', validators=[DataRequired()])
     submit = SubmitField('Submit Proposal')
