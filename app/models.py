@@ -14,7 +14,7 @@ class Proposal(db.Model):
     issue = db.Column(db.String(32), unique=False)
     brief = db.Column(db.String(128))
     detail = db.Column(db.String(1000))
-    writer = db.Column(db.String(), db.ForeignKey('user.email'), nullable=False)
+    writer = db.Column(db.String(), db.ForeignKey('user.email'))
 
     def __repr__(self):
         return '<Brief: {}>'.format(self.brief)
